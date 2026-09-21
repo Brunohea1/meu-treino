@@ -38,51 +38,38 @@
             background: #e63946;
             color: white;
             border: none;
-
             padding: 10px 18px;
-
             border-radius: 6px;
-
             cursor: pointer;
-
             font-weight: bold;
         }
 
         .container {
             max-width: 1000px;
-
             margin: 40px auto;
-
             padding: 0 20px;
         }
 
         .titulo {
             text-align: center;
-
             margin-bottom: 35px;
         }
 
         .titulo h2 {
             font-size: 32px;
-
             margin-bottom: 10px;
         }
 
         .titulo p {
             color: #666;
-
             font-size: 16px;
         }
 
         .aula {
             background: white;
-
             border-radius: 12px;
-
             overflow: hidden;
-
             margin-bottom: 30px;
-
             box-shadow: 0 5px 20px rgba(0,0,0,0.08);
         }
 
@@ -92,31 +79,22 @@
 
         .aula-info h3 {
             font-size: 24px;
-
             margin-bottom: 10px;
         }
 
         .aula-info p {
             color: #666;
-
             margin-bottom: 20px;
         }
 
         .assistir {
             background: #111;
-
             color: white;
-
             border: none;
-
             padding: 13px 25px;
-
             border-radius: 6px;
-
             cursor: pointer;
-
             font-weight: bold;
-
             font-size: 15px;
         }
 
@@ -126,35 +104,24 @@
 
         .video-container {
             display: none;
-
             padding: 0 25px 25px;
         }
 
         .video-container video {
             width: 100%;
-
             max-height: 600px;
-
             border-radius: 8px;
-
             background: black;
         }
 
         .fechar {
             margin-top: 15px;
-
             background: #e63946;
-
             color: white;
-
             border: none;
-
             padding: 10px 20px;
-
             border-radius: 6px;
-
             cursor: pointer;
-
             font-weight: bold;
         }
 
@@ -214,7 +181,6 @@
     </div>
 
 
-
     <!-- AULA 01 -->
 
     <div class="aula">
@@ -244,10 +210,11 @@
 
             <video
                 id="videoTreino1"
-                controls>
+                controls
+                playsinline>
 
                 <source
-                    src="videos/aula1.mp4"
+                    src="https://res.cloudinary.com/egsadfhj/video/upload/v1790034399/aula1.mp4"
                     type="video/mp4">
 
                 Seu navegador não suporta vídeos.
@@ -266,7 +233,6 @@
         </div>
 
     </div>
-
 
 
     <!-- AULA 02 -->
@@ -298,7 +264,8 @@
 
             <video
                 id="videoTreino2"
-                controls>
+                controls
+                playsinline>
 
                 <source
                     src="videos/aula2.mp4"
@@ -325,7 +292,6 @@
 </div>
 
 
-
 <script>
 
 
@@ -347,7 +313,6 @@
     }
 
 
-
     // ABRIR TREINO
 
     function abrirTreino(containerId, videoId) {
@@ -364,7 +329,6 @@
         video.play();
 
     }
-
 
 
     // FECHAR TREINO
@@ -385,7 +349,6 @@
             "none";
 
     }
-
 
 
     // SAIR
