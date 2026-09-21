@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Meus Treinos</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f5f5;
+            color: #222;
+        }
+
+        header {
+            background: #111;
+            color: white;
+            padding: 20px 40px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 24px;
+        }
+
+        .sair {
+            background: #e63946;
+            color: white;
+            border: none;
+
+            padding: 10px 18px;
+
+            border-radius: 6px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1000px;
+
+            margin: 40px auto;
+
+            padding: 0 20px;
+        }
+
+        .titulo {
+            text-align: center;
+
+            margin-bottom: 35px;
+        }
+
+        .titulo h2 {
+            font-size: 32px;
+
+            margin-bottom: 10px;
+        }
+
+        .titulo p {
+            color: #666;
+
+            font-size: 16px;
+        }
+
+        .aula {
+            background: white;
+
+            border-radius: 12px;
+
+            overflow: hidden;
+
+            margin-bottom: 30px;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .aula-info {
+            padding: 25px;
+        }
+
+        .aula-info h3 {
+            font-size: 24px;
+
+            margin-bottom: 10px;
+        }
+
+        .aula-info p {
+            color: #666;
+
+            margin-bottom: 20px;
+        }
+
+        .assistir {
+            background: #111;
+
+            color: white;
+
+            border: none;
+
+            padding: 13px 25px;
+
+            border-radius: 6px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+
+            font-size: 15px;
+        }
+
+        .assistir:hover {
+            background: #333;
+        }
+
+        .video-container {
+            display: none;
+
+            padding: 0 25px 25px;
+        }
+
+        .video-container video {
+            width: 100%;
+
+            max-height: 600px;
+
+            border-radius: 8px;
+
+            background: black;
+        }
+
+        .fechar {
+            margin-top: 15px;
+
+            background: #e63946;
+
+            color: white;
+
+            border: none;
+
+            padding: 10px 20px;
+
+            border-radius: 6px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+
+            header {
+                padding: 15px 20px;
+            }
+
+            header h1 {
+                font-size: 20px;
+            }
+
+            .container {
+                margin: 25px auto;
+            }
+
+            .titulo h2 {
+                font-size: 26px;
+            }
+
+            .aula-info h3 {
+                font-size: 21px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<header>
+
+    <h1>MEU TREINO</h1>
+
+    <button class="sair" onclick="sair()">
+        SAIR
+    </button>
+
+</header>
+
+
+<div class="container">
+
+
+    <div class="titulo">
+
+        <h2>Meus Treinos</h2>
+
+        <p>
+            Escolha uma aula e comece seu treino.
+        </p>
+
+    </div>
+
+
+
+    <!-- AULA 01 -->
+
+    <div class="aula">
+
+        <div class="aula-info">
+
+            <h3>Aula 01</h3>
+
+            <p>
+                Seu primeiro treino online.
+            </p>
+
+            <button
+                class="assistir"
+                onclick="abrirTreino('videoContainer1','videoTreino1')">
+
+                ASSISTIR AULA
+
+            </button>
+
+        </div>
+
+
+        <div
+            class="video-container"
+            id="videoContainer1">
+
+            <video
+                id="videoTreino1"
+                controls>
+
+                <source
+                    src="videos/aula1.mp4"
+                    type="video/mp4">
+
+                Seu navegador não suporta vídeos.
+
+            </video>
+
+
+            <button
+                class="fechar"
+                onclick="fecharTreino('videoContainer1','videoTreino1')">
+
+                FECHAR TREINO
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- AULA 02 -->
+
+    <div class="aula">
+
+        <div class="aula-info">
+
+            <h3>Aula 02</h3>
+
+            <p>
+                Segundo treino online.
+            </p>
+
+            <button
+                class="assistir"
+                onclick="abrirTreino('videoContainer2','videoTreino2')">
+
+                ASSISTIR AULA
+
+            </button>
+
+        </div>
+
+
+        <div
+            class="video-container"
+            id="videoContainer2">
+
+            <video
+                id="videoTreino2"
+                controls>
+
+                <source
+                    src="videos/aula2.mp4"
+                    type="video/mp4">
+
+                Seu navegador não suporta vídeos.
+
+            </video>
+
+
+            <button
+                class="fechar"
+                onclick="fecharTreino('videoContainer2','videoTreino2')">
+
+                FECHAR TREINO
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+<script>
+
+
+    // VERIFICA LOGIN
+
+    const alunoLogado =
+        localStorage.getItem("alunoLogado");
+
+
+    if (alunoLogado !== "true") {
+
+        alert(
+            "Você precisa entrar na sua conta primeiro."
+        );
+
+        window.location.href =
+            "login.html";
+
+    }
+
+
+
+    // ABRIR TREINO
+
+    function abrirTreino(containerId, videoId) {
+
+        const container =
+            document.getElementById(containerId);
+
+        const video =
+            document.getElementById(videoId);
+
+        container.style.display =
+            "block";
+
+        video.play();
+
+    }
+
+
+
+    // FECHAR TREINO
+
+    function fecharTreino(containerId, videoId) {
+
+        const container =
+            document.getElementById(containerId);
+
+        const video =
+            document.getElementById(videoId);
+
+        video.pause();
+
+        video.currentTime = 0;
+
+        container.style.display =
+            "none";
+
+    }
+
+
+
+    // SAIR
+
+    function sair() {
+
+        localStorage.removeItem(
+            "alunoLogado"
+        );
+
+        window.location.href =
+            "index.html";
+
+    }
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Área do Aluno - Meu Treino</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f4f4;
+            color: #222;
+        }
+
+        /* CABEÇALHO */
+
+        .cabecalho {
+            background: #111;
+            color: white;
+
+            padding: 20px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .sair {
+            color: white;
+            text-decoration: none;
+
+            padding: 10px 18px;
+
+            border: 1px solid white;
+            border-radius: 6px;
+        }
+
+        /* CONTEÚDO */
+
+        .conteudo {
+            width: 90%;
+            max-width: 1000px;
+
+            margin: 40px auto;
+        }
+
+        .boas-vindas {
+            margin-bottom: 30px;
+        }
+
+        .boas-vindas h1 {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .boas-vindas p {
+            color: #666;
+            font-size: 17px;
+        }
+
+        /* CARDS */
+
+        .cards {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(250px, 1fr));
+
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 12px;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,0.08);
+
+            text-align: center;
+        }
+
+        .card h2 {
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #666;
+
+            line-height: 1.5;
+
+            margin-bottom: 20px;
+        }
+
+        .botao {
+            display: inline-block;
+
+            background: #111;
+
+            color: white;
+
+            text-decoration: none;
+
+            padding: 13px 25px;
+
+            border-radius: 7px;
+
+            font-weight: bold;
+        }
+
+        .botao:hover {
+            background: #333;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            .cabecalho {
+                padding: 15px;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .sair {
+                padding: 8px 12px;
+            }
+
+            .conteudo {
+                margin-top: 25px;
+            }
+
+            .boas-vindas h1 {
+                font-size: 26px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+
+    <header class="cabecalho">
+
+        <div class="logo">
+            MEU TREINO
+        </div>
+
+        <a href="index.html" class="sair">
+            SAIR
+        </a>
+
+    </header>
+
+
+    <!-- CONTEÚDO -->
+
+    <main class="conteudo">
+
+        <section class="boas-vindas">
+
+            <h1>
+                Olá, aluno!
+            </h1>
+
+            <p>
+                Seja bem-vindo à sua área de treino.
+            </p>
+
+        </section>
+
+
+        <!-- CARDS -->
+
+        <section class="cards">
+
+
+            <div class="card">
+
+                <h2>
+                    Meus Treinos
+                </h2>
+
+                <p>
+                    Acesse seus treinos e acompanhe
+                    todas as aulas disponíveis.
+                </p>
+
+                <a href="#" class="botao">
+                    VER TREINOS
+                </a>
+
+            </div>
+
+
+            <div class="card">
+
+                <h2>
+                    Meu Progresso
+                </h2>
+
+                <p>
+                    Acompanhe sua evolução e veja
+                    seu desempenho ao longo do tempo.
+                </p>
+
+                <a href="#" class="botao">
+                    VER PROGRESSO
+                </a>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Meu Treino</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .tela-inicial {
+            width: 100%;
+            height: 100vh;
+
+            background-image:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.65),
+                    rgba(0, 0, 0, 0.75)
+                ),
+                url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1920&q=80");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            color: white;
+        }
+
+        .conteudo {
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+        }
+
+        .logo {
+            font-size: 48px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .descricao {
+            font-size: 20px;
+            line-height: 1.5;
+            margin-bottom: 40px;
+            color: #eeeeee;
+        }
+
+        .botoes {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            align-items: center;
+        }
+
+        .botao {
+            width: 100%;
+            max-width: 320px;
+            padding: 18px;
+            border-radius: 10px;
+
+            font-size: 18px;
+            font-weight: bold;
+
+            cursor: pointer;
+            text-decoration: none;
+
+            transition: 0.3s;
+        }
+
+        .contratar {
+            background: white;
+            color: black;
+        }
+
+        .entrar {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .botao:hover {
+            transform: scale(1.03);
+        }
+
+        .contratar:hover {
+            background: #eeeeee;
+        }
+
+        .entrar:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        @media (max-width: 600px) {
+
+            .logo {
+                font-size: 38px;
+            }
+
+            .descricao {
+                font-size: 18px;
+            }
+
+            .botao {
+                max-width: 280px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="tela-inicial">
+
+        <div class="conteudo">
+
+            <div class="logo">
+                MEU TREINO
+            </div>
+
+            <div class="descricao">
+                Treinos online para você treinar<br>
+                onde estiver.
+            </div>
+
+            <div class="botoes">
+
+                <a href="planos.html" class="botao contratar">
+                    CONTRATAR PLANO
+                </a>
+
+                <a href="login.html" class="botao entrar">
+                    ENTRAR
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
