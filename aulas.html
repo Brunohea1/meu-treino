@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Meus Treinos</title>
+
 
     <style>
 
@@ -15,115 +19,216 @@
             font-family: Arial, sans-serif;
         }
 
+
         body {
-            background: #f5f5f5;
+            background: #f2f2f2;
             color: #222;
         }
+
+
+        /* CABEÇALHO */
 
         header {
             background: #111;
             color: white;
-            padding: 20px 40px;
+
+            padding: 18px 40px;
 
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
+
         header h1 {
             font-size: 24px;
+            letter-spacing: 1px;
         }
+
 
         .sair {
             background: #e63946;
             color: white;
+
             border: none;
+
             padding: 10px 18px;
+
             border-radius: 6px;
+
             cursor: pointer;
+
             font-weight: bold;
         }
+
+
+        .sair:hover {
+            background: #c92f3b;
+        }
+
+
+        /* CONTAINER */
 
         .container {
             max-width: 1000px;
-            margin: 40px auto;
+
+            margin: 45px auto;
+
             padding: 0 20px;
         }
 
+
+        /* TÍTULO */
+
         .titulo {
             text-align: center;
-            margin-bottom: 35px;
+
+            margin-bottom: 40px;
         }
 
+
         .titulo h2 {
-            font-size: 32px;
+            font-size: 34px;
+
             margin-bottom: 10px;
         }
+
 
         .titulo p {
             color: #666;
+
             font-size: 16px;
         }
 
+
+        /* CARD DA AULA */
+
         .aula {
             background: white;
-            border-radius: 12px;
+
+            border-radius: 14px;
+
             overflow: hidden;
+
             margin-bottom: 30px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
         }
+
 
         .aula-info {
-            padding: 25px;
+            padding: 30px;
         }
 
+
+        .numero {
+            font-size: 14px;
+
+            font-weight: bold;
+
+            color: #777;
+
+            margin-bottom: 8px;
+
+            text-transform: uppercase;
+        }
+
+
         .aula-info h3 {
-            font-size: 24px;
+            font-size: 26px;
+
             margin-bottom: 10px;
         }
 
+
         .aula-info p {
             color: #666;
-            margin-bottom: 20px;
+
+            margin-bottom: 25px;
+
+            font-size: 16px;
         }
+
+
+        /* BOTÃO */
 
         .assistir {
             background: #111;
+
             color: white;
+
             border: none;
-            padding: 13px 25px;
-            border-radius: 6px;
+
+            padding: 14px 28px;
+
+            border-radius: 7px;
+
             cursor: pointer;
+
             font-weight: bold;
+
             font-size: 15px;
+
+            transition: 0.2s;
         }
+
 
         .assistir:hover {
             background: #333;
+
+            transform: translateY(-1px);
         }
+
+
+        /* VÍDEO */
 
         .video-container {
             display: none;
-            padding: 0 25px 25px;
+
+            padding: 0 30px 30px;
         }
+
 
         .video-container video {
             width: 100%;
+
             max-height: 600px;
-            border-radius: 8px;
+
+            display: block;
+
+            border-radius: 10px;
+
             background: black;
         }
 
+
+        /* FECHAR */
+
         .fechar {
             margin-top: 15px;
+
             background: #e63946;
+
             color: white;
+
             border: none;
-            padding: 10px 20px;
+
+            padding: 11px 20px;
+
             border-radius: 6px;
+
             cursor: pointer;
+
             font-weight: bold;
         }
+
+
+        .fechar:hover {
+            background: #c92f3b;
+        }
+
+
+        /* CELULAR */
 
         @media (max-width: 600px) {
 
@@ -131,20 +236,53 @@
                 padding: 15px 20px;
             }
 
+
             header h1 {
                 font-size: 20px;
             }
 
-            .container {
-                margin: 25px auto;
+
+            .sair {
+                padding: 9px 14px;
+
+                font-size: 12px;
             }
+
+
+            .container {
+                margin: 30px auto;
+
+                padding: 0 15px;
+            }
+
 
             .titulo h2 {
-                font-size: 26px;
+                font-size: 28px;
             }
 
+
+            .titulo p {
+                font-size: 14px;
+            }
+
+
+            .aula-info {
+                padding: 25px 20px;
+            }
+
+
             .aula-info h3 {
-                font-size: 21px;
+                font-size: 23px;
+            }
+
+
+            .assistir {
+                width: 100%;
+            }
+
+
+            .video-container {
+                padding: 0 20px 20px;
             }
 
         }
@@ -153,225 +291,415 @@
 
 </head>
 
+
 <body>
 
 
-<header>
+    <!-- CABEÇALHO -->
 
-    <h1>MEU TREINO</h1>
+    <header>
 
-    <button class="sair" onclick="sair()">
-        SAIR
-    </button>
-
-</header>
+        <h1>
+            MEU TREINO
+        </h1>
 
 
-<div class="container">
+        <button
+            class="sair"
+            onclick="sair()"
+        >
+            SAIR
+        </button>
+
+    </header>
 
 
-    <div class="titulo">
 
-        <h2>Meus Treinos</h2>
+    <!-- CONTEÚDO -->
 
-        <p>
-            Escolha uma aula e comece seu treino.
-        </p>
-
-    </div>
+    <div class="container">
 
 
-    <!-- AULA 01 -->
+        <div class="titulo">
 
-    <div class="aula">
-
-        <div class="aula-info">
-
-            <h3>Aula 01</h3>
+            <h2>
+                Meus Treinos
+            </h2>
 
             <p>
-                Seu primeiro treino online.
+                Escolha uma aula e comece seu treino.
             </p>
 
-            <button
-                class="assistir"
-                onclick="abrirTreino('videoContainer1','videoTreino1')">
+        </div>
 
-                ASSISTIR AULA
 
-            </button>
+
+        <!-- AULA 01 -->
+
+        <div class="aula">
+
+            <div class="aula-info">
+
+                <div class="numero">
+                    Treino 01
+                </div>
+
+
+                <h3>
+                    Aula 01
+                </h3>
+
+
+                <p>
+                    Seu primeiro treino online.
+                </p>
+
+
+                <button
+                    class="assistir"
+                    onclick="abrirTreino('videoContainer1','videoTreino1')"
+                >
+                    ASSISTIR AULA
+                </button>
+
+            </div>
+
+
+            <div
+                class="video-container"
+                id="videoContainer1"
+            >
+
+                <video
+                    id="videoTreino1"
+                    controls
+                    playsinline
+                >
+
+                    <source
+                        src="https://res.cloudinary.com/egsadfhj/video/upload/v1790034399/aula1.mp4"
+                        type="video/mp4"
+                    >
+
+                    Seu navegador não suporta vídeos.
+
+                </video>
+
+
+                <button
+                    class="fechar"
+                    onclick="fecharTreino('videoContainer1','videoTreino1')"
+                >
+                    FECHAR TREINO
+                </button>
+
+            </div>
 
         </div>
 
 
-        <div
-            class="video-container"
-            id="videoContainer1">
 
-            <video
-                id="videoTreino1"
-                controls
-                playsinline>
+        <!-- AULA 02 -->
 
-                <source
-                    src="https://res.cloudinary.com/egsadfhj/video/upload/v1790034399/aula1.mp4"
-                    type="video/mp4">
+        <div class="aula">
 
-                Seu navegador não suporta vídeos.
+            <div class="aula-info">
 
-            </video>
+                <div class="numero">
+                    Treino 02
+                </div>
 
 
-            <button
-                class="fechar"
-                onclick="fecharTreino('videoContainer1','videoTreino1')">
+                <h3>
+                    Aula 02
+                </h3>
 
-                FECHAR TREINO
 
-            </button>
+                <p>
+                    Segundo treino online.
+                </p>
+
+
+                <button
+                    class="assistir"
+                    onclick="abrirTreino('videoContainer2','videoTreino2')"
+                >
+                    ASSISTIR AULA
+                </button>
+
+            </div>
+
+
+            <div
+                class="video-container"
+                id="videoContainer2"
+            >
+
+                <video
+                    id="videoTreino2"
+                    controls
+                    playsinline
+                >
+
+                    <source
+                        src="https://res.cloudinary.com/egsadfhj/video/upload/v1790034846/aula2.mp4"
+                        type="video/mp4"
+                    >
+
+                    Seu navegador não suporta vídeos.
+
+                </video>
+
+
+                <button
+                    class="fechar"
+                    onclick="fecharTreino('videoContainer2','videoTreino2')"
+                >
+                    FECHAR TREINO
+                </button>
+
+            </div>
 
         </div>
+
+
+
+        <!-- NOVAS AULAS DO PAINEL -->
+
+        <div id="novasAulas"></div>
+
 
     </div>
 
 
 
-    <!-- AULA 02 -->
-
-    <div class="aula">
-
-        <div class="aula-info">
-
-            <h3>Aula 02</h3>
-
-            <p>
-                Segundo treino online.
-            </p>
-
-            <button
-                class="assistir"
-                onclick="abrirTreino('videoContainer2','videoTreino2')">
-
-                ASSISTIR AULA
-
-            </button>
-
-        </div>
+    <script>
 
 
-        <div
-            class="video-container"
-            id="videoContainer2">
+        /* PROTEGER ÁREA DO ALUNO */
 
-            <video
-                id="videoTreino2"
-                controls
-                playsinline>
-
-                <source
-                    src="https://res.cloudinary.com/egsadfhj/video/upload/v1790034846/aula2.mp4"
-                    type="video/mp4">
-
-                Seu navegador não suporta vídeos.
-
-            </video>
+        const alunoLogado =
+            localStorage.getItem("alunoLogado");
 
 
-            <button
-                class="fechar"
-                onclick="fecharTreino('videoContainer2','videoTreino2')">
+        if (alunoLogado !== "true") {
 
-                FECHAR TREINO
+            alert(
+                "Você precisa entrar na sua conta primeiro."
+            );
 
-            </button>
+            window.location.href =
+                "login.html";
 
-        </div>
-
-    </div>
-
-
-</div>
+        }
 
 
 
-<script>
+        /* ABRIR VÍDEO */
+
+        function abrirTreino(
+            containerId,
+            videoId
+        ) {
+
+            const container =
+                document.getElementById(
+                    containerId
+                );
 
 
-    // VERIFICA LOGIN
-
-    const alunoLogado =
-        localStorage.getItem("alunoLogado");
-
-
-    if (alunoLogado !== "true") {
-
-        alert(
-            "Você precisa entrar na sua conta primeiro."
-        );
-
-        window.location.href =
-            "login.html";
-
-    }
+            const video =
+                document.getElementById(
+                    videoId
+                );
 
 
+            container.style.display =
+                "block";
 
-    // ABRIR TREINO
 
-    function abrirTreino(containerId, videoId) {
+            video.play();
 
-        const container =
-            document.getElementById(containerId);
-
-        const video =
-            document.getElementById(videoId);
-
-        container.style.display =
-            "block";
-
-        video.play();
-
-    }
+        }
 
 
 
-    // FECHAR TREINO
+        /* FECHAR VÍDEO */
 
-    function fecharTreino(containerId, videoId) {
+        function fecharTreino(
+            containerId,
+            videoId
+        ) {
 
-        const container =
-            document.getElementById(containerId);
-
-        const video =
-            document.getElementById(videoId);
-
-        video.pause();
-
-        video.currentTime = 0;
-
-        container.style.display =
-            "none";
-
-    }
+            const container =
+                document.getElementById(
+                    containerId
+                );
 
 
-
-    // SAIR
-
-    function sair() {
-
-        localStorage.removeItem(
-            "alunoLogado"
-        );
-
-        window.location.href =
-            "index.html";
-
-    }
+            const video =
+                document.getElementById(
+                    videoId
+                );
 
 
-</script>
+            video.pause();
+
+
+            video.currentTime = 0;
+
+
+            container.style.display =
+                "none";
+
+        }
+
+
+
+        /* SAIR */
+
+        function sair() {
+
+            localStorage.removeItem(
+                "alunoLogado"
+            );
+
+
+            window.location.href =
+                "index.html";
+
+        }
+
+
+
+        /* CARREGAR AULAS DO PAINEL */
+
+        function carregarNovasAulas() {
+
+
+            const aulas =
+                JSON.parse(
+                    localStorage.getItem("aulas")
+                ) || [];
+
+
+            const container =
+                document.getElementById(
+                    "novasAulas"
+                );
+
+
+            container.innerHTML = "";
+
+
+
+            aulas.forEach(
+                function(aula, index) {
+
+
+                    const numero =
+                        index + 3;
+
+
+                    const containerId =
+                        "videoContainerNova" + aula.id;
+
+
+                    const videoId =
+                        "videoNova" + aula.id;
+
+
+
+                    const div =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    div.className =
+                        "aula";
+
+
+
+                    div.innerHTML = `
+
+                        <div class="aula-info">
+
+                            <div class="numero">
+                                Treino ${numero}
+                            </div>
+
+                            <h3>
+                                ${aula.nome}
+                            </h3>
+
+                            <p>
+                                ${aula.descricao}
+                            </p>
+
+                            <button
+                                class="assistir"
+                                onclick="abrirTreino('${containerId}','${videoId}')"
+                            >
+                                ASSISTIR AULA
+                            </button>
+
+                        </div>
+
+
+                        <div
+                            class="video-container"
+                            id="${containerId}"
+                        >
+
+                            <video
+                                id="${videoId}"
+                                controls
+                                playsinline
+                            >
+
+                                <source
+                                    src="${aula.link}"
+                                    type="video/mp4"
+                                >
+
+                                Seu navegador não suporta vídeos.
+
+                            </video>
+
+
+                            <button
+                                class="fechar"
+                                onclick="fecharTreino('${containerId}','${videoId}')"
+                            >
+                                FECHAR TREINO
+                            </button>
+
+                        </div>
+
+                    `;
+
+
+
+                    container.appendChild(
+                        div
+                    );
+
+                }
+            );
+
+        }
+
+
+
+        /* EXECUTAR */
+
+        carregarNovasAulas();
+
+
+    </script>
 
 
 </body>
+
 </html>
