@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Painel Administrativo</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+
+        body {
+            background: #f2f2f2;
+            color: #222;
+        }
+
+
+        /* CABEÇALHO */
+
+        header {
+            background: #111;
+            color: white;
+
+            padding: 18px 40px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+
+        header h1 {
+            font-size: 24px;
+            letter-spacing: 1px;
+        }
+
+
+        .voltar {
+            background: #333;
+            color: white;
+
+            border: none;
+
+            padding: 10px 18px;
+
+            border-radius: 6px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+        }
+
+
+        .voltar:hover {
+            background: #444;
+        }
+
+
+        /* CONTAINER */
+
+        .container {
+            max-width: 1000px;
+
+            margin: 40px auto;
+
+            padding: 0 20px;
+        }
+
+
+        /* TÍTULO */
+
+        .titulo {
+            margin-bottom: 30px;
+        }
+
+
+        .titulo h2 {
+            font-size: 30px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .titulo p {
+            color: #666;
+        }
+
+
+        /* PAINEL */
+
+        .painel {
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 12px;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+
+            margin-bottom: 30px;
+        }
+
+
+        .painel h3 {
+            font-size: 22px;
+
+            margin-bottom: 25px;
+        }
+
+
+        /* CAMPOS */
+
+        .campo {
+            margin-bottom: 20px;
+        }
+
+
+        .campo label {
+            display: block;
+
+            font-weight: bold;
+
+            margin-bottom: 8px;
+        }
+
+
+        .campo input,
+        .campo textarea {
+            width: 100%;
+
+            padding: 13px;
+
+            border: 1px solid #ccc;
+
+            border-radius: 6px;
+
+            font-size: 15px;
+
+            outline: none;
+        }
+
+
+        .campo input:focus,
+        .campo textarea:focus {
+            border-color: #111;
+        }
+
+
+        .campo textarea {
+            height: 100px;
+
+            resize: vertical;
+        }
+
+
+        /* BOTÃO */
+
+        .cadastrar {
+            background: #111;
+
+            color: white;
+
+            border: none;
+
+            padding: 14px 25px;
+
+            border-radius: 6px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+
+            font-size: 15px;
+        }
+
+
+        .cadastrar:hover {
+            background: #333;
+        }
+
+
+        /* LISTA DE AULAS */
+
+        .lista {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 15px;
+        }
+
+
+        .aula {
+            border: 1px solid #ddd;
+
+            border-radius: 8px;
+
+            padding: 20px;
+
+            background: #fafafa;
+        }
+
+
+        .aula h4 {
+            font-size: 19px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .aula p {
+            color: #666;
+
+            margin-bottom: 10px;
+        }
+
+
+        .aula-link {
+            font-size: 13px;
+
+            color: #555;
+
+            word-break: break-all;
+        }
+
+
+        .excluir {
+            margin-top: 15px;
+
+            background: #e63946;
+
+            color: white;
+
+            border: none;
+
+            padding: 9px 15px;
+
+            border-radius: 5px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+        }
+
+
+        .excluir:hover {
+            background: #c92f3b;
+        }
+
+
+        /* CELULAR */
+
+        @media (max-width: 600px) {
+
+            header {
+                padding: 15px 20px;
+            }
+
+
+            header h1 {
+                font-size: 19px;
+            }
+
+
+            .voltar {
+                padding: 9px 12px;
+
+                font-size: 12px;
+            }
+
+
+            .container {
+                margin: 25px auto;
+
+                padding: 0 15px;
+            }
+
+
+            .painel {
+                padding: 20px;
+            }
+
+
+            .titulo h2 {
+                font-size: 26px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- CABEÇALHO -->
+
+    <header>
+
+        <h1>
+            PAINEL ADMINISTRATIVO
+        </h1>
+
+
+        <button
+            class="voltar"
+            onclick="voltar()"
+        >
+            VOLTAR
+        </button>
+
+    </header>
+
+
+
+    <!-- CONTEÚDO -->
+
+    <div class="container">
+
+
+        <div class="titulo">
+
+            <h2>
+                Gerenciar Treinos
+            </h2>
+
+            <p>
+                Cadastre as aulas que ficarão disponíveis para os alunos.
+            </p>
+
+        </div>
+
+
+
+        <!-- CADASTRAR AULA -->
+
+        <div class="painel">
+
+            <h3>
+                Cadastrar nova aula
+            </h3>
+
+
+            <div class="campo">
+
+                <label>
+                    Nome da aula
+                </label>
+
+                <input
+                    type="text"
+                    id="nomeAula"
+                    placeholder="Exemplo: Treino de pernas"
+                >
+
+            </div>
+
+
+            <div class="campo">
+
+                <label>
+                    Descrição
+                </label>
+
+                <textarea
+                    id="descricaoAula"
+                    placeholder="Digite uma descrição para o treino"
+                ></textarea>
+
+            </div>
+
+
+            <div class="campo">
+
+                <label>
+                    Link do vídeo
+                </label>
+
+                <input
+                    type="text"
+                    id="linkVideo"
+                    placeholder="Cole aqui o link do Cloudinary"
+                >
+
+            </div>
+
+
+            <button
+                class="cadastrar"
+                onclick="cadastrarAula()"
+            >
+                CADASTRAR AULA
+            </button>
+
+        </div>
+
+
+
+        <!-- AULAS CADASTRADAS -->
+
+        <div class="painel">
+
+            <h3>
+                Aulas cadastradas
+            </h3>
+
+
+            <div
+                class="lista"
+                id="listaAulas"
+            >
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <script>
+
+
+        /* CARREGAR AULAS */
+
+        let aulas =
+            JSON.parse(
+                localStorage.getItem("aulas")
+            ) || [];
+
+
+
+        mostrarAulas();
+
+
+
+        /* CADASTRAR AULA */
+
+        function cadastrarAula() {
+
+
+            const nome =
+                document
+                .getElementById("nomeAula")
+                .value
+                .trim();
+
+
+            const descricao =
+                document
+                .getElementById("descricaoAula")
+                .value
+                .trim();
+
+
+            const link =
+                document
+                .getElementById("linkVideo")
+                .value
+                .trim();
+
+
+
+            /* VERIFICAR CAMPOS */
+
+            if (
+                nome === "" ||
+                descricao === "" ||
+                link === ""
+            ) {
+
+                alert(
+                    "Preencha todos os campos."
+                );
+
+                return;
+
+            }
+
+
+
+            /* CRIAR AULA */
+
+            const novaAula = {
+
+                id: Date.now(),
+
+                nome: nome,
+
+                descricao: descricao,
+
+                link: link
+
+            };
+
+
+
+            /* ADICIONAR */
+
+            aulas.push(novaAula);
+
+
+
+            /* SALVAR */
+
+            localStorage.setItem(
+                "aulas",
+                JSON.stringify(aulas)
+            );
+
+
+
+            /* LIMPAR CAMPOS */
+
+            document
+                .getElementById("nomeAula")
+                .value = "";
+
+
+            document
+                .getElementById("descricaoAula")
+                .value = "";
+
+
+            document
+                .getElementById("linkVideo")
+                .value = "";
+
+
+
+            /* ATUALIZAR LISTA */
+
+            mostrarAulas();
+
+
+
+            alert(
+                "Aula cadastrada com sucesso!"
+            );
+
+        }
+
+
+
+        /* MOSTRAR AULAS */
+
+        function mostrarAulas() {
+
+
+            const lista =
+                document.getElementById(
+                    "listaAulas"
+                );
+
+
+            lista.innerHTML = "";
+
+
+
+            if (aulas.length === 0) {
+
+                lista.innerHTML =
+                    "<p style='color:#777;'>Nenhuma aula cadastrada ainda.</p>";
+
+                return;
+
+            }
+
+
+
+            aulas.forEach(function(aula) {
+
+
+                const div =
+                    document.createElement("div");
+
+
+                div.className = "aula";
+
+
+
+                div.innerHTML = `
+
+                    <h4>
+                        ${aula.nome}
+                    </h4>
+
+                    <p>
+                        ${aula.descricao}
+                    </p>
+
+                    <div class="aula-link">
+                        ${aula.link}
+                    </div>
+
+                    <button
+                        class="excluir"
+                        onclick="excluirAula(${aula.id})"
+                    >
+                        EXCLUIR
+                    </button>
+
+                `;
+
+
+
+                lista.appendChild(div);
+
+            });
+
+        }
+
+
+
+        /* EXCLUIR */
+
+        function excluirAula(id) {
+
+
+            const confirmar =
+                confirm(
+                    "Deseja realmente excluir esta aula?"
+                );
+
+
+            if (!confirmar) {
+                return;
+            }
+
+
+
+            aulas =
+                aulas.filter(function(aula) {
+
+                    return aula.id !== id;
+
+                });
+
+
+
+            localStorage.setItem(
+                "aulas",
+                JSON.stringify(aulas)
+            );
+
+
+
+            mostrarAulas();
+
+        }
+
+
+
+        /* VOLTAR */
+
+        function voltar() {
+
+            window.location.href =
+                "aulas.html";
+
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>
